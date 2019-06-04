@@ -11,15 +11,13 @@ CREATE TABLE public.appeal
   diagnosis character(200) NOT NULL,
   price integer NOT NULL,
   CONSTRAINT aid PRIMARY KEY (aid),
-  CONSTRAINT aid_aid FOREIGN KEY (aid)
-      REFERENCES public.proc_res (aid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION,
   CONSTRAINT appeal_did_fkey FOREIGN KEY (did)
       REFERENCES public.doctors (did) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION,
   CONSTRAINT appeal_pid_fkey FOREIGN KEY (pid)
       REFERENCES public.patients (pid) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT aid_lim UNIQUE (aid)
 )
 WITH (
   OIDS=FALSE
