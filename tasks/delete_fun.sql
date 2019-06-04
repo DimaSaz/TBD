@@ -4,7 +4,7 @@
 
 CREATE OR REPLACE FUNCTION public.del(aid_del integer)
   RETURNS void AS
-$BODY$delete from appeal *
+$BODY$delete from proc_res *
 where aid = aid_del;
 $BODY$
   LANGUAGE sql VOLATILE
