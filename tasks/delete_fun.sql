@@ -6,6 +6,8 @@ CREATE OR REPLACE FUNCTION public.del(aid_del integer)
   RETURNS void AS
 $BODY$delete from proc_res *
 where aid = aid_del;
+delete from appeal *
+where aid = aid_del;
 $BODY$
   LANGUAGE sql VOLATILE
   COST 100;
